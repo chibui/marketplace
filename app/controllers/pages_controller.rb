@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def buyerhome
   end
 
-  def sellerhomebuyer
+  def sellerhome
   end
 
   def buyerfaq
@@ -13,4 +13,8 @@ class PagesController < ApplicationController
 
   def sellerfaq
   end
+
+  def tos
+  end
+
 end

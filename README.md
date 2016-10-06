@@ -5,13 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.3.1
 
-* System dependencies
+* System dependencies - Bootstrap-sass,
+                        Devise
+
 
 * Configuration
 
-* Database creation
+* Database creation - rake db:create
 
 * Database initialization
 

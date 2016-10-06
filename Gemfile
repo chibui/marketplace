@@ -16,6 +16,10 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use rolify for role management
+gem 'rolify'
+# Use cancancan for User authorization
+gem 'cancancan'
 # Use bootstrap-sass CSS framework
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use devise for user authentication management

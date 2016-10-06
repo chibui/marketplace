@@ -1,29 +1,62 @@
+<div class="container">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <%= f.label "Personal Info" %><br />
+
+  <div class="form-group">
+    <%= f.text_field :first_name, class:"form-control", placeholder:"First name" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :last_name, class:"form-control", placeholder:"Last name" %>
+  </div>
+
+  <%= f.label "Business Info" %><br />
+
+  <div class="form-group">
+    <%= f.text_field :business_name, class:"form-control", placeholder:"Business name" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :abn, class:"form-control", placeholder:"ABN" %>
+  </div>
+
+  <%= f.label "Contact Info" %><br />
+
+  <div class="form-group">
+    <%= f.text_field :phone, class:"form-control", placeholder:"Phone Number" %>
+  </div>
+
+  <%= f.label "Security" %><br />
+
+  <div class="form-group">
+    <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password (#{@minimum_password_length} characters minimum)" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Re-enter password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-check">
+    <%= f.check_box :tos_status, class:"form-check-input" %>
+    <%= f.label :tos_status, "I agree to the "  %>
+    <!-- Opens TOS page in new tab -->
+    <%= link_to "Terms of Service", pages_tos_url , target:'_blank'%>
   </div>
+  <br>
+  <input class="btn btn-default" type="submit" value="submit" >
+    <!-- <%= f.submit "Sign up" %> -->
+  <!-- </div> -->
 <% end %>
 
+</div>
 <%= render "devise/shared/links" %>
