@@ -37,7 +37,7 @@
 
         <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>
             <%= link_to('Edit registration', edit_user_registration_path) %>
@@ -55,13 +55,4 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
-<nav class="navbar navbar-default navbar-lower">
-  <div class="container">
-    <div class="collapse navbar-collapse collapse-buttons">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a href="/pages/sellerhome">Seller Home</a></li>
-      </ul>
-    </div>
-  </div>
 </nav>
