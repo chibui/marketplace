@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>Store#index</h1>
+<p>Find me in app/views/store/index.html.erb</p>
+
+<% cache @products do %>  <!-- caching at store level -->
+  <% @products.each do |product| %>
+    <% cache product do %> <!-- caching at item level -->
+      <div class="entry">
+        <h3><%= product.title %></h3>
+        <%= sanitize(product.description) %>
+        <p><%= product.origin %></p>
+        <div class="price_line">
+          <span class="price"><%= product.price %></span>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+<% end %>
