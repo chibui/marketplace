@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :line_items
   resources :carts
-  get 'store/index'
 
   resources :products
   root 'pages#landing'
@@ -15,6 +14,10 @@ Rails.application.routes.draw do
   get 'pages/sellerfaq'
 
   get 'pages/tos'
+
+  get 'pages/profile'
+
+  get 'store/index'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

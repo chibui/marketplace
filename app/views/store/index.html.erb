@@ -1,20 +1,32 @@
 <p id="notice"><%= notice %></p>
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<h1>Store</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <% cache @products do %>  <!-- caching at store level -->
+        <% @products.each do |product| %>
+          <% cache product do %> <!-- caching at item level -->
+            <div class="entry">
+              <h3><%= product.title %></h3>
+              <%= sanitize(product.description) %>
+              <p><%= product.origin %></p>
+              <div class="price_line">
+                <span class="price"><%= product.price %></span>
+                <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+              </div>
+            </div>
+            <br>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
 
-<% cache @products do %>  <!-- caching at store level -->
-  <% @products.each do |product| %>
-    <% cache product do %> <!-- caching at item level -->
-      <div class="entry">
-        <h3><%= product.title %></h3>
-        <%= sanitize(product.description) %>
-        <p><%= product.origin %></p>
-        <div class="price_line">
-          <span class="price"><%= product.price %></span>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+    <div class="col-sm-4">
+      <div id="side">
+        <div id="cart">
+          <%= render @cart %>
         </div>
       </div>
-      <br>
-    <% end %>
-  <% end %>
-<% end %>
+    </div>
+  </div>
+</div>
