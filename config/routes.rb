@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :line_items
   resources :carts
-
   resources :products
+
   root 'pages#landing'
 
   get 'pages/buyerhome'
@@ -20,5 +20,8 @@ Rails.application.routes.draw do
   get 'store/index'
 
   devise_for :users
+  scope "/admin" do
+    resources :users
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
